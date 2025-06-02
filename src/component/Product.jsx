@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import product1 from "../../public/imges/mainfolder/product1.jpg"
 import product2 from "../../public/imges/mainfolder/product2.jpg"
@@ -17,30 +18,32 @@ export default function Product() {
             id: 1,
             name: "Eco Lite",
             price: "₹2999",
-            image: product4
+            image: product4,
+            link: "https://rotexfans.com/details/eco-lite"
         },
         {
             id: 2,
             name: "Eco Adv.",
             price: "₹3099 - ₹3199",
             image: product1,
- 
+            link: "https://rotexfans.com/details/eco-adv."
         },
         {
             id: 3,
             name: "Phi",
             price: "₹3599 - ₹3799",
             image: product2,
-           
+            link: "https://rotexfans.com/details/phi"
         },
         {
             id: 4,
             name: "Trio",
             price: "₹3599 - ₹3799",
             image: product3,
-           
+            link: "https://rotexfans.com/details/trio"
         },
     ]
+
     return (
         <>
 
@@ -57,38 +60,47 @@ export default function Product() {
                     </div>
 
                     {/* Products Grid */}
-                  {/* Infinite Sliding Products */}
-<div className="overflow-hidden w-full">
-    <div className="flex w-max animate-slide whitespace-nowrap gap-8">
-        {[...products, ...products].map((product, index) => (
-            <div key={index} className="bg-gray-200 w-[350px] flex-shrink-0 rounded-[20px] p-6">
-                {/* Product Card */}
-                <div className="bg-white rounded-2xl mb-6 min-h-[280px] flex flex-col items-center justify-center">
-                    <img
-                        src={product.image || "/placeholder.svg"}
-                        alt={product.name}
-                        className="w-full max-w-[250px] h-auto object-contain"
-                    />
-                </div>
-                <div className="flex justify-between items-start mb-6">
-                    <div>
-                        <h3 className="text-2xl font-bold CDH-gradiant mb-2">{product.name}</h3>
-                        <p className="text-lg font-semibold text-gray-900">MRP {product.price}</p>
-                    </div>
-                    <div className="flex flex-col items-center space-y-3">
-                        <div className="flex flex-col space-y-2">
-                            <div className="w-8 h-8 bg-gray-300 border-2 border-gray-400 rounded-full cursor-pointer hover:scale-110 transition-transform"></div>
-                            <div className="w-8 h-8 bg-gray-800 border-2 border-gray-600 rounded-full cursor-pointer hover:scale-110 transition-transform"></div>
+                    {/* Infinite Sliding Products */}
+                    <div className="overflow-hidden w-full">
+                        <div className="flex w-max animate-slide whitespace-nowrap gap-8">
+                            {[...products, ...products].map((product, index) => (
+                                <div key={index} className="bg-gray-200 w-[300px] flex-shrink-0 rounded-[17px] p-4">
+                                    {/* Product Card */}
+                                    <div className="bg-white rounded-2xl mb-6 min-h-[200px] flex flex-col items-center justify-center">
+                                        <img
+                                            src={product.image || "/placeholder.svg"}
+                                            alt={product.name}
+                                            className="w-full max-w-[220px] h-auto object-contain"
+                                        />
+                                    </div>
+                                    <div className="flex justify-between items-start mb-3">
+                                        <div>
+                                            <h3 className="text-[18px] font-bold CDH-gradiant mb-2">{product.name}</h3>
+                                            <p className="text-[16px] font-semibold text-gray-900">MRP {product.price}</p>
+                                        </div>
+                                        <div className="flex flex-col items-center space-y-3">
+                                            <div className="flex flex-col space-y-2">
+                                                <div className="w-8 h-8 bg-gray-300 border-2 border-gray-400 rounded-full cursor-pointer hover:scale-110 transition-transform"></div>
+                                                <div className="w-8 h-8 bg-gray-800 border-2 border-gray-600 rounded-full cursor-pointer hover:scale-110 transition-transform"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {product.link ? (
+                                        <Link to={product.link}>
+                                            <button className="w-full bs-mix-rotex text-white font-semibold py-2 px-6 rounded-full transition-colors duration-200">
+                                                Know More
+                                            </button>
+                                        </Link>
+                                    ) : (
+                                        <button className="w-full bs-mix-rotex text-white font-semibold py-2 px-6 rounded-full transition-colors duration-200" disabled>
+                                            Know More
+                                        </button>
+                                    )}
+
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </div>
-                <button className="w-full bs-mix-rotex text-white font-semibold py-3 px-6 rounded-full transition-colors duration-200">
-                    Know More
-                </button>
-            </div>
-        ))}
-    </div>
-</div>
 
                 </div>
             </div>

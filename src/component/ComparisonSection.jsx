@@ -1,6 +1,13 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 export default function ComparisonSection() {
+
+    const navigate = useNavigate()
+
+    const handlerotex =()=>{
+        navigate("https://rotexfans.com/all-products")
+    }
     const comparisonFeatures = [
         {
             feature: "Energy Efficiency",
@@ -221,9 +228,13 @@ export default function ComparisonSection() {
                             <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Experience the Difference?</h3>
                             <p className="text-[13px] mb-8 opacity-90">Join thousands of satisfied customers who made the smart choice</p>
                             <div className="flex flex-row gap-4 justify-center">
-                                <button className="bg-white text-[14px] text-teal-600 font-bold py-[5px] px-8 rounded-full hover:bg-gray-100 transition-colors duration-200">
+                            <Link to={"https://rotexfans.com/all-products"}>
+
+
+                                <button className="bg-white text-[14px] text-teal-600 font-bold py-[5px] px-8 rounded-full hover:bg-gray-100 transition-colors duration-200" onClick={handlerotex}>
                                     Shop Now
                                 </button>
+                                                            </Link>
                                 <button className="border-2 text-[14px] border-white text-white font-bold py-[8px] px-8 rounded-full hover:bg-white hover:text-teal-600 transition-colors duration-200">
                                     Find Dealer
                                 </button>
